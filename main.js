@@ -7,9 +7,11 @@ function Book(title, author, pageCount, readStatus){
     this.author = author;
     this.pageCount = pageCount;
     this.readStatus = readStatus;
-    
+
     this.id = crypto.randomUUID();
 }
 
-let book1 = new Book('War and Peace', 'Leo Tolstoy', '972', true);
+function addBookToLibrary(title = 'Untitled', author = 'Author unknown', pageCount = 'Not answered', readStatus = 'Not specified'){
+    booksInLibrary.push(new Book(title, author, pageCount, readStatus));
+}
 
