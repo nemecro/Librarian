@@ -15,8 +15,10 @@ function addBookToLibrary(title = 'Untitled', author = 'Author unknown', pageCou
     booksInLibrary.push(new Book(title, author, pageCount, readStatus));
 }
 
+const bookSection = document.querySelector('#bookSection');
+
 function renderBooks(){
-    const bookSection = document.querySelector('#bookSection');
+    bookSection.replaceChildren();
 
     booksInLibrary.forEach(book => {
         const title = document.createElement('h3');
