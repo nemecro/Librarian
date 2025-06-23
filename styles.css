@@ -1,0 +1,21 @@
+@import url(fonts/inter/inter.css);
+
+:root {
+    --background:  #F9FAFB;
+    --primary-accent:  #4F8CFF;
+    --secondary-accent: #A0AEC0;
+    --text: #22223B;
+    --text-s: #6B7280;
+    --success: #22C55E ;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+}
