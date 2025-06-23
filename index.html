@@ -32,10 +32,15 @@
             </p>
              <p class="inputLabelGroup">
                 <p>Did you read the book?</p>
-                <label for="yes"><input type="radio" name="readStatus" id="yes">Yes</label>
-                <label for="no"><input type="radio" name="readStatus" id="no">No</label>
+                <div class="radioGroup">
+                    <label for="yes"><input type="radio" name="readStatus" id="yes">Yes</label>
+                    <label for="no"><input type="radio" name="readStatus" id="no">No</label>
+                </div>
             </p>
-            <button type="submit">Submit</button>
+            <div class="btnGroup">
+                <button id="dialogCloseBtn" class="formCancel">Cancel</button>
+                <button id="dialogSubmitBtn" class="formSubmit" type="submit" >Submit</button>
+            </div>
         </form>
     </dialog>
     

@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6 {
     --text-s: #6B7280;
     --success: #22C55E ;
     --warning: #fdc04f;
+    --alert: #ff2929;
 }
 
 body {
@@ -88,6 +89,8 @@ h1 {
 
 button {
     cursor: pointer;
+    border: none;
+    border-radius: 6px;
 }
 
 #bookSection {
@@ -131,11 +134,9 @@ footer {
     background-color: var(--warning);
     width: 100%;
     padding: 0.5rem;
-    border-radius: 6px;
     box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
     text-align: center;
     padding: 0.5rem 0.75rem;
-    border: none;
     font-weight: 700;
     font-size: 1.15rem;
     transition: 250ms;
@@ -152,3 +153,50 @@ footer {
     border-radius: 6px;
 }
 
+.inputLabelGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.15rem;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding-block: 0.5rem;
+}
+
+.formCancel, .formSubmit {
+  padding: 0.25rem 0.5rem;
+  font-weight: 600;
+  transition: 250ms;
+}
+
+.formCancel {
+  background-color: var(--alert);
+  color: var(--background);
+  border: 2px solid var(--alert);
+}
+
+.formCancel:hover {
+  background-color: var(--background);
+  color: var(--alert);
+}
+
+.formSubmit {
+  background-color: var(--success);
+  color: var(--background);
+  border: 2px solid var(--success);
+}
+
+.formSubmit:hover {
+  background-color: var(--background);
+  color: var(--success);
+}
