@@ -77,6 +77,13 @@ function getRandomHexColor() {
   return hexColor;
 }
 
+const newBookDialog = document.querySelector('#newBookDialog');
+const openFormBtn = document.querySelector('#openFormBtn');
+
+openFormBtn.addEventListener('click', () => {
+    newBookDialog.showModal();
+})
+
 addBookToLibrary();
 addBookToLibrary();
 addBookToLibrary();

@@ -64,6 +64,8 @@ h1, h2, h3, h4, h5, h6 {
     --text: #22223B;
     --text-s: #6B7280;
     --success: #22C55E ;
+    --warning: #ffe5b4;
+    --warning-b: #fdc04f;
 }
 
 body {
@@ -78,6 +80,10 @@ h1 {
     font-size: 3rem;
     font-weight: 900;
     text-align: center;
+}
+
+button {
+    cursor: pointer;
 }
 
 #bookSection {
@@ -101,4 +107,37 @@ h1 {
 .minorInfoContainer {
     display: flex;
     gap: 0.25rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--warning);
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: center;
+}
+
+#openFormBtn {
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    background-color: var(--warning-b);
+    font-weight: 700;
+    font-size: 1.15rem;
+    transition: 250ms;
+}
+
+#openFormBtn:hover {
+    background-color: var(--success);
+    color: var(--background-b);
+}
+
+#newBookDialog {
+    margin: auto;
+    border: none;
+    border-radius: 6px;
 }
