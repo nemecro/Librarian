@@ -64,8 +64,7 @@ h1, h2, h3, h4, h5, h6 {
     --text: #22223B;
     --text-s: #6B7280;
     --success: #22C55E ;
-    --warning: #ffe5b4;
-    --warning-b: #fdc04f;
+    --warning: #fdc04f;
 }
 
 body {
@@ -122,10 +121,16 @@ footer {
 }
 
 #openFormBtn {
+    position: fixed;
+    bottom: 0;
+    background-color: var(--warning);
+    width: 100%;
+    padding: 0.5rem;
     border-radius: 6px;
-    padding: 0.25rem 0.5rem;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    padding: 0.5rem 0.75rem;
     border: none;
-    background-color: var(--warning-b);
     font-weight: 700;
     font-size: 1.15rem;
     transition: 250ms;
