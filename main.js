@@ -2,6 +2,8 @@
 
 const booksInLibrary = [];
 
+const bookSection = document.querySelector('#bookSection');
+
 function Book(title, author, pageCount, readStatus){
     this.title = title;
     this.author = author;
@@ -15,24 +17,25 @@ function addBookToLibrary(title = 'Untitled', author = 'Author unknown', pageCou
     booksInLibrary.push(new Book(title, author, pageCount, readStatus));
 }
 
-const bookSection = document.querySelector('#bookSection');
-
 function renderBooks(){
     bookSection.replaceChildren();
+    createBookCardElements();
+}
 
+function createBookCardElements(){
     booksInLibrary.forEach(book => {
-        const title = document.createElement('h3');
-        title.textContent = book.title;
+    const title = document.createElement('h3');
+    title.textContent = book.title;
 
-        const author = document.createElement('h4');
-        author.textContent = book.author;
+    const author = document.createElement('h4');
+    author.textContent = book.author;
 
-        const pageCount = document.createElement('p');
-        pageCount.textContent = book.pageCount;
+    const pageCount = document.createElement('p');
+    pageCount.textContent = book.pageCount;
 
-        const readStatus = document.createElement('p');
-        readStatus.textContent = book.readStatus;
+    const readStatus = document.createElement('p');
+    readStatus.textContent = book.readStatus;
 
-        bookSection.append(title, author, pageCount, readStatus);
+    bookSection.append(title, author, pageCount, readStatus);
     })
 }
