@@ -24,6 +24,18 @@ function renderBooks(){
 
 function createBookCardElements(){
     booksInLibrary.forEach(book => {
+    const iconContainer = document.createElement('div');
+    iconContainer.innerHTML = `
+      <svg width="64" height="80" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Book body with rounded corners -->
+        <rect x="4" y="4" width="56" height="72" rx="12" fill="${getRandomHexColor()}"/>
+        <!-- Spine line -->
+        <rect x="12" y="6" width="3" height="58" rx="1.5" fill="${getRandomHexColor()}"/>
+        <!-- Bottom rounded bar (pages) -->
+        <rect x="9" y="62" width="50" height="12" rx="6" fill="#FDF6ED"/>
+    </svg>
+    `;
+
     const title = document.createElement('h3');
     title.textContent = book.title;
 
@@ -36,6 +48,14 @@ function createBookCardElements(){
     const readStatus = document.createElement('p');
     readStatus.textContent = book.readStatus;
 
-    bookSection.append(title, author, pageCount, readStatus);
+    bookSection.append(iconContainer, title, author, pageCount, readStatus);
     })
+}
+
+function getRandomHexColor() {
+  // Generate a random number between 0 and 0xFFFFFF (16777215)
+  const randomInt = Math.floor(Math.random() * 16777216);
+  // Convert to hexadecimal and pad with leading zeros if necessary
+  const hexColor = '#' + randomInt.toString(16).padStart(6, '0');
+  return hexColor;
 }
