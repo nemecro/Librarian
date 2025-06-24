@@ -116,6 +116,7 @@ const openFormBtn = document.querySelector('#openFormBtn');
 const dialogCloseBtn = document.querySelector('#dialogCloseBtn');
 const dialogSubmitBtn = document.querySelector('#dialogSubmitBtn');
 
+const newBookForm = document.querySelector('#newBookForm');
 const formTitleField = document.querySelector('#title');
 const formAuthorField = document.querySelector('#author');
 const formPageCountField = document.querySelector('#pageCount');
@@ -129,7 +130,7 @@ dialogCloseBtn.addEventListener('click', () => {
     newBookDialog.close();
 })
 
-dialogSubmitBtn.addEventListener('click', () => {
+newBookForm.addEventListener('submit', () => {
     // the ternary checks are neccessary for the function to assign default values in case the fields were left empty
     addBookToLibrary(formTitleField.value === '' ? undefined : formTitleField.value, formAuthorField.value === '' ? undefined : formAuthorField.value, formPageCountField.value === '' ? undefined : formPageCountField.value, formReadStatusFieldYes.checked);
     renderBooks();
