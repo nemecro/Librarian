@@ -1,8 +1,3 @@
-/*
-TO DO:
-- make the code more readable, fix some errors - I'm talking about those change status buttons and their arrow functoins
-*/
-
 "use strict"
 
 const booksInLibrary = [];
@@ -28,6 +23,15 @@ function renderBooks(){
     createBookCardElements();
 }
 
+function changeBookStatus(book){
+    book.readStatus = book.readStatus === true ? false : true;
+    renderBooks();
+}
+
+function removeBookFromLibrary(book){
+    booksInLibrary.splice(booksInLibrary.indexOf(book), 1);
+    renderBooks();
+}
 
 function createBookCardElements(){
     booksInLibrary.forEach(book => {
@@ -62,20 +66,11 @@ function createBookCardElements(){
 
     const changeStatusBtn = document.createElement('button');
     changeStatusBtn.textContent = 'Change status';
-    
-    // I do not like these arrow functions - I will change it later, but for now it works
-    changeStatusBtn.addEventListener('click', () => {
-        book.readStatus = book.readStatus === true ? false : true;
-        renderBooks();
-    });
+    changeStatusBtn.addEventListener('click', () => changeBookStatus(book));
 
     const removeBookBtn = document.createElement('button');
     removeBookBtn.textContent = 'Delete';
-    
-    removeBookBtn.addEventListener('click', () => {
-        booksInLibrary.splice(booksInLibrary.indexOf(book), 1);
-        renderBooks();
-    });
+    removeBookBtn.addEventListener('click', () => removeBookFromLibrary(book));
 
     minorInfoContainer.append(pageCount, readStatus)
     textContainer.append(title, author, minorInfoContainer);
@@ -105,6 +100,7 @@ function getRandomHexColor() {
   return hexColor;
 }
 
+// FORM RELATED
 const newBookDialog = document.querySelector('#newBookDialog');
 const openFormBtn = document.querySelector('#openFormBtn');
 const dialogCloseBtn = document.querySelector('#dialogCloseBtn');
