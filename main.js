@@ -66,16 +66,23 @@ function createBookCardElements(){
     const changeStatusBtn = document.createElement('button');
     changeStatusBtn.textContent = 'Change status';
     
+    // I do not like these arrow functions - I will change it later, but for now it works
     changeStatusBtn.addEventListener('click', () => {
         book.readStatus = book.readStatus === true ? false : true;
         renderBooks();
     });
 
+    const removeBookBtn = document.createElement('button');
+    removeBookBtn.textContent = 'Delete';
     
+    removeBookBtn.addEventListener('click', () => {
+        booksInLibrary.splice(booksInLibrary.indexOf(book), 1);
+        renderBooks();
+    });
 
     minorInfoContainer.append(pageCount, readStatus)
     textContainer.append(title, author, minorInfoContainer);
-    bookCardContainer.append(iconContainer, textContainer, changeStatusBtn);
+    bookCardContainer.append(iconContainer, textContainer, changeStatusBtn, removeBookBtn);
     bookSection.append(bookCardContainer);
     })
 }
