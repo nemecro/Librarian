@@ -13,7 +13,7 @@ function Book(title, author, pageCount, readStatus){
     this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary(title = 'Untitled', author = 'Author unknown', pageCount = 'N/A', readStatus = 'N/A'){
+function addBookToLibrary(title = 'Untitled', author = 'Author unknown', pageCount = 'N/A', readStatus = 'not read'){
     booksInLibrary.push(new Book(title, author, pageCount, readStatus));
 }
 
@@ -59,7 +59,7 @@ function createBookCardElements(){
     pageCount.classList.add('bookPara');
 
     const readStatus = document.createElement('p');
-    readStatus.textContent = book.readStatus;
+    readStatus.textContent = book.readStatus === true ? 'read' : 'not read';
     readStatus.classList.add('bookPara');
 
     minorInfoContainer.append(pageCount, readStatus)
@@ -82,6 +82,11 @@ const openFormBtn = document.querySelector('#openFormBtn');
 const dialogCloseBtn = document.querySelector('#dialogCloseBtn');
 const dialogSubmitBtn = document.querySelector('#dialogSubmitBtn');
 
+const formTitleField = document.querySelector('#title');
+const formAuthorField = document.querySelector('#author');
+const formPageCountField = document.querySelector('#pageCount');
+const formReadStatusFieldYes = document.querySelector('#yes');
+
 openFormBtn.addEventListener('click', () => {
     newBookDialog.showModal();
 });
@@ -89,6 +94,12 @@ openFormBtn.addEventListener('click', () => {
 dialogCloseBtn.addEventListener('click', () => {
     newBookDialog.close();
 })
+
+newBookDialog.addEventListener('close', () => {
+    // the ternary checks are neccessary for the function to assign default values in case the fields were left empty
+    addBookToLibrary(formTitleField.value === '' ? undefined : formTitleField.value, formAuthorField.value === '' ? undefined : formAuthorField.value, formPageCountField.value === '' ? undefined : formPageCountField.value, formReadStatusFieldYes.checked);
+    renderBooks();
+});
 
 
 
