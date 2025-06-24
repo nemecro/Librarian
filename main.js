@@ -95,7 +95,7 @@ dialogCloseBtn.addEventListener('click', () => {
     newBookDialog.close();
 })
 
-newBookDialog.addEventListener('close', () => {
+dialogSubmitBtn.addEventListener('click', () => {
     // the ternary checks are neccessary for the function to assign default values in case the fields were left empty
     addBookToLibrary(formTitleField.value === '' ? undefined : formTitleField.value, formAuthorField.value === '' ? undefined : formAuthorField.value, formPageCountField.value === '' ? undefined : formPageCountField.value, formReadStatusFieldYes.checked);
     renderBooks();
