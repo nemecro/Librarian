@@ -1,3 +1,12 @@
+/*
+TO DO:
+- make the code more readable, fix some errors - I'm talking about those change status buttons and their arrow functoins
+- every time you update the DOM - do not change the icon of the book, it would be cool if the books kept their icons along their existence
+    this could be done that every time you generate a new book, you will create a parameter that will hold the hexadecimal
+    numbers
+    or preferably the whole svg content
+*/
+
 "use strict"
 
 const booksInLibrary = [];
