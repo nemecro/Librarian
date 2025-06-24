@@ -91,6 +91,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 6px;
+    transition: 250ms;
 }
 
 #bookSection {
@@ -107,12 +108,43 @@ button {
 
     display: flex;
     gap: 1rem;
+    justify-content: space-between;
     align-items: center;
+}
+
+.bookProfileContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .minorInfoContainer {
     display: flex;
     gap: 0.25rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.buttonsContainer button {
+  padding: 0.4rem 0.25rem;
+}
+
+.changeBtn {
+  background-color: var(--warning);
+  border: 2px solid var(--warning);
+}
+
+.removeBtn {
+  background-color: var(--alert);
+  border: 2px solid var(--alert);
+}
+
+.changeBtn:hover, .removeBtn:hover {
+  background-color: transparent;
 }
 
 footer {
@@ -138,7 +170,6 @@ footer {
     padding: 0.5rem 0.75rem;
     font-weight: 700;
     font-size: 1.15rem;
-    transition: 250ms;
 }
 
 #openFormBtn:hover {
@@ -175,7 +206,6 @@ footer {
 .formCancel, .formSubmit {
   padding: 0.25rem 0.5rem;
   font-weight: 600;
-  transition: 250ms;
 }
 
 .formCancel {

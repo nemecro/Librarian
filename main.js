@@ -37,6 +37,9 @@ function createBookCardElements(){
     booksInLibrary.forEach(book => {
     const bookCardContainer = document.createElement('div');
     bookCardContainer.classList.add('bookCardContainer');
+
+    const bookProfileContainer = document.createElement('div');
+    bookProfileContainer.classList.add('bookProfileContainer');
     
     const iconContainer = document.createElement('div');
     iconContainer.classList.add('iconContainer');
@@ -64,17 +67,24 @@ function createBookCardElements(){
     readStatus.textContent = book.readStatus === true ? 'read' : 'not read';
     readStatus.classList.add('bookPara');
 
+    const buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add('buttonsContainer');
+
     const changeStatusBtn = document.createElement('button');
+    changeStatusBtn.classList.add('changeBtn');
     changeStatusBtn.textContent = 'Change status';
     changeStatusBtn.addEventListener('click', () => changeBookStatus(book));
 
     const removeBookBtn = document.createElement('button');
+    removeBookBtn.classList.add('removeBtn');
     removeBookBtn.textContent = 'Delete';
     removeBookBtn.addEventListener('click', () => removeBookFromLibrary(book));
 
-    minorInfoContainer.append(pageCount, readStatus)
+    bookProfileContainer.append(iconContainer, textContainer);
+    buttonsContainer.append(changeStatusBtn, removeBookBtn);
+    minorInfoContainer.append(pageCount, readStatus);
     textContainer.append(title, author, minorInfoContainer);
-    bookCardContainer.append(iconContainer, textContainer, changeStatusBtn, removeBookBtn);
+    bookCardContainer.append(bookProfileContainer, buttonsContainer);
     bookSection.append(bookCardContainer);
     })
 }
