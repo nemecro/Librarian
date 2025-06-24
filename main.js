@@ -87,7 +87,7 @@ openFormBtn.addEventListener('click', () => {
 });
 
 dialogCloseBtn.addEventListener('click', () => {
-    newBookDialog.closest();
+    newBookDialog.close();
 })
 
 
