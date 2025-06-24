@@ -22,6 +22,7 @@ function renderBooks(){
     createBookCardElements();
 }
 
+
 function createBookCardElements(){
     booksInLibrary.forEach(book => {
     const bookCardContainer = document.createElement('div');
@@ -62,9 +63,19 @@ function createBookCardElements(){
     readStatus.textContent = book.readStatus === true ? 'read' : 'not read';
     readStatus.classList.add('bookPara');
 
+    const changeStatusBtn = document.createElement('button');
+    changeStatusBtn.textContent = 'Change status';
+    
+    changeStatusBtn.addEventListener('click', () => {
+        book.readStatus = book.readStatus === true ? false : true;
+        renderBooks();
+    });
+
+    
+
     minorInfoContainer.append(pageCount, readStatus)
     textContainer.append(title, author, minorInfoContainer);
-    bookCardContainer.append(iconContainer, textContainer);
+    bookCardContainer.append(iconContainer, textContainer, changeStatusBtn);
     bookSection.append(bookCardContainer);
     })
 }
