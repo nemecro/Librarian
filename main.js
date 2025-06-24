@@ -1,10 +1,6 @@
 /*
 TO DO:
 - make the code more readable, fix some errors - I'm talking about those change status buttons and their arrow functoins
-- every time you update the DOM - do not change the icon of the book, it would be cool if the books kept their icons along their existence
-    this could be done that every time you generate a new book, you will create a parameter that will hold the hexadecimal
-    numbers
-    or preferably the whole svg content
 */
 
 "use strict"
@@ -19,6 +15,7 @@ function Book(title, author, pageCount, readStatus){
     this.pageCount = pageCount;
     this.readStatus = readStatus;
 
+    this.icon = getRandomBookIcon();
     this.id = crypto.randomUUID();
 }
 
@@ -39,16 +36,7 @@ function createBookCardElements(){
     
     const iconContainer = document.createElement('div');
     iconContainer.classList.add('iconContainer');
-    iconContainer.innerHTML = `
-      <svg width="64" height="80" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Book body with rounded corners -->
-        <rect x="4" y="4" width="56" height="72" rx="12" fill="${getRandomHexColor()}"/>
-        <!-- Spine line -->
-        <rect x="12" y="6" width="3" height="58" rx="1.5" fill="${getRandomHexColor()}"/>
-        <!-- Bottom rounded bar (pages) -->
-        <rect x="9" y="62" width="50" height="12" rx="6" fill="#FDF6ED"/>
-    </svg>
-    `;
+    iconContainer.innerHTML = book.icon;
 
     const textContainer = document.createElement('div');
     textContainer.classList.add('textContainer');
@@ -94,6 +82,19 @@ function createBookCardElements(){
     bookCardContainer.append(iconContainer, textContainer, changeStatusBtn, removeBookBtn);
     bookSection.append(bookCardContainer);
     })
+}
+
+function getRandomBookIcon(){
+    return `
+      <svg width="64" height="80" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Book body with rounded corners -->
+        <rect x="4" y="4" width="56" height="72" rx="12" fill="${getRandomHexColor()}"/>
+        <!-- Spine line -->
+        <rect x="12" y="6" width="3" height="58" rx="1.5" fill="${getRandomHexColor()}"/>
+        <!-- Bottom rounded bar (pages) -->
+        <rect x="9" y="62" width="50" height="12" rx="6" fill="#FDF6ED"/>
+    </svg>
+    `;
 }
 
 function getRandomHexColor() {
