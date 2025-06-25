@@ -136,9 +136,3 @@ newBookForm.addEventListener('submit', () => {
     renderBooks();
 });
 
-
-
-addBookToLibrary();
-addBookToLibrary();
-addBookToLibrary();
-renderBooks();
